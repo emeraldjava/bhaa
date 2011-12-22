@@ -48,6 +48,8 @@ grails.logging.jul.usebridge = true
 // packages to include in Spring bean scanning
 grails.spring.bean.packages = []
 
+grails.views.javascript.library="jquery"
+
 // set per-environment serverURL stem for creating absolute links
 environments {
     production {
@@ -64,13 +66,7 @@ environments {
 
 // log4j configuration
 log4j = {
-    // Example of changing the log pattern for the default console
-    // appender:
-    //
-    //appenders {
-    //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
-    //}
-
+	  
     error  'org.codehaus.groovy.grails.web.servlet',  //  controllers
            'org.codehaus.groovy.grails.web.pages', //  GSP
            'org.codehaus.groovy.grails.web.sitemesh', //  layouts
@@ -81,7 +77,28 @@ log4j = {
            'org.codehaus.groovy.grails.orm.hibernate', // hibernate integration
            'org.springframework',
            'org.hibernate',
-           'net.sf.ehcache.hibernate'
+           'net.sf.ehcache.hibernate',
+		   'apache.commons.digester.Digester'
 
     warn   'org.mortbay.log'
+	
+	debug 	'grails.app.controller.ie.bhaa.RunnerController',
+			'grails.app.domain.ie.bhaa.Runner'
+
+	info  'grails.app'
+
+	// appenders
+	appenders {
+		file name:'file', file:'./log/grails.log', append: false
+		console name:'stdout', threshold: org.apache.log4j.Level.INFO,  
+			layout: pattern(conversionPattern:"%-2p %c(%l) - %m%n")//"%d [%t] %-5p %c(%l) - %m%n"
+	}
+	
+	root {
+		error 'file', 'stdout'
+		info 'file', 'stdout'
+		warn 'file', 'stdout'
+		debug 'file', 'stdout'
+		additivity = false
+	}
 }
