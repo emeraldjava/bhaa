@@ -19,6 +19,9 @@ class LoadDBService {
     }
 
     def load() { 
+		
+		def runner = new Runner();
+		
 	
 		// csv 	
 	}
