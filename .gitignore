@@ -1,4 +1,4 @@
-
+.idea
 *.sublime-project
-
+*.iml
 *.sublime-workspace
