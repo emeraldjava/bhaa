@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html ng-app>
     <head>
-        <title>BHAA Registration App</title>
+        <title>Hello AngularJS</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -20,7 +20,7 @@
         <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
 
         <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>-->
-        <script src="../app/app.module.js"></script>
+        <script src="../resources/js/app.js"></script>
     </head>
 
     <body>
@@ -29,5 +29,6 @@
         <p>The content is {{greeting.name}}</p>
     </div>
 
+    <img src="<c:url value="/resources/images/bhaa-logo.jpg" />" />
     </body>
 </html>

@@ -8,8 +8,7 @@ https://github.com/spinner0815/spring-data-rest-angularjs/blob/master/src/main/r
 - Angularjs Client
 
 http://angular-ui.github.io/
-https://github.com/johnpapa/angular-styleguide
-https://www.airpair.com/angularjs/posts/top-10-mistakes-angularjs-developers-make
+
 
 - Running
 

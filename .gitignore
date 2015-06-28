@@ -2,3 +2,8 @@
 *.sublime-project
 *.iml
 *.sublime-workspace
+/target/
+
+.settings/
+.project
+.classpath
