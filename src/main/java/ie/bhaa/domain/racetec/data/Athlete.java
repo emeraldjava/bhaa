@@ -1,21 +1,12 @@
 package ie.bhaa.domain.racetec.data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.springframework.data.annotation.Id;
 
-@Entity
-@Table(schema = "dbo")
 public class Athlete {
 	
 	@Id
-	@Column(name="AthleteId")
-    //@GeneratedValue(strategy=GenerationType.AUTO)
     private long athleteId;
-    @Column(name="FirstName")
     private String firstName;
-    @Column(name="LastName")
     private String lastName;
     
     public Athlete(){

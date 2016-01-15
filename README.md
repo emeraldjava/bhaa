@@ -1,5 +1,10 @@
 The BHAA web based registration application.
 
+- vaadin & mongo db
+http://ralf.schaeftlein.de/2015/03/26/using-vaadin-ui-with-spring-boot-for-spring-data-backend-based-on-mongodb/
+https://github.com/theMightyFly/demo-spring-vaadin/blob/master/src/main/java/demo/DemoApplication.java
+http://spring.io/guides/gs/crud-with-vaadin/
+
 - A REST-full server
 
 https://spring.io/guides/gs/actuator-service/

@@ -1,9 +1,6 @@
 package ie.bhaa.domain.racetec.data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.springframework.data.annotation.Id;
 
 /**
  * Created by pauloconnell on 28/06/15.
@@ -33,16 +30,11 @@ import javax.persistence.Table;
  CREATE UNIQUE INDEX UIDX_ClubName ON Club (ClubName);
  */
 
-@Entity
-@Table(schema = "dbo")
 public class Club {
 
     @Id
-    @Column(name="ClubId")
     private long clubId;
-    @Column(name="ClubCode")
     private String clubCode;// VARCHAR(10) NOT NULL,
-    @Column(name="ClubName")
     private String clubName;// VARCHAR(100),
     //CountryId SMALLINT,
     //StateId SMALLINT,
@@ -58,7 +50,6 @@ public class Club {
     //PhoneCell VARCHAR(20),
     //EMail VARCHAR(50),
     //WebSite VARCHAR(100),
-    @Column(name="IsActive", nullable = false, columnDefinition = "TINYINT", length = 1)
     private boolean isActive; //BIT NOT NULL,
     //ReplStatus TINYINT
 
