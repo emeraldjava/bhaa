@@ -1,6 +1,6 @@
-package ie.bhaa.registration.racetec.repository;
+package ie.bhaa.domain.racetec.repository;
 
-import ie.bhaa.registration.racetec.data.Club;
+import ie.bhaa.domain.racetec.data.Club;
 import org.springframework.data.repository.CrudRepository;
 
 /**

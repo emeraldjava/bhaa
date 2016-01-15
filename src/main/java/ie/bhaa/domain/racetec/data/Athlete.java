@@ -1,4 +1,4 @@
-package ie.bhaa.registration.racetec.data;
+package ie.bhaa.domain.racetec.data;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

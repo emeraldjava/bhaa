@@ -1,4 +1,4 @@
-package ie.bhaa.registration.domain;
+package ie.bhaa.domain.racetec.domain;
 
 /**
  * Created by pauloconnell on 26/06/15.

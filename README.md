@@ -9,6 +9,9 @@ https://github.com/spinner0815/spring-data-rest-angularjs/blob/master/src/main/r
 
 http://angular-ui.github.io/
 
+-- Caching and filtering of fullname
+http://jmdobry.github.io/angular-cache/
+http://stackoverflow.com/questions/20977703/filter-multiple-fields-using-single-input-in-angularjs
 
 - Running
 

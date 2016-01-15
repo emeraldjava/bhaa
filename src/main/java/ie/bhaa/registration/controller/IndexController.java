@@ -1,8 +1,7 @@
 package ie.bhaa.registration.controller;
 
-import ie.bhaa.registration.domain.Runner;
+import ie.bhaa.domain.racetec.domain.Runner;
 import org.apache.log4j.Logger;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -12,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 /**
  * Created by pauloconnell on 26/06/15.
  */
-@Controller
+@RestController
 //@RequestMapping("/rest")
 public class IndexController {
 
