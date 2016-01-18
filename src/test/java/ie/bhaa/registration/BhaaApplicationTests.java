@@ -1,7 +1,6 @@
 package ie.bhaa.registration;
 
 import ie.bhaa.BhaaApplication;
-import ie.bhaa.domain.wordpress.data.User;
 import ie.bhaa.domain.wordpress.repository.UserRepository;
 import org.junit.Assert;
 import org.junit.Ignore;
@@ -29,9 +28,9 @@ public class BhaaApplicationTests {
 	@Test
 	public void testUser() {
 		Assert.assertNotNull(userRepo);
-		User user = userRepo.findOne(7713l);
-		Assert.assertNotNull(user);
-        System.out.println(user.toString());
+//		User user = userRepo.findOne(7713l);
+//		Assert.assertNotNull(user);
+//        System.out.println(user.toString());
 	}
 
 //	@Ignore

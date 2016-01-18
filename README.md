@@ -5,6 +5,21 @@ http://ralf.schaeftlein.de/2015/03/26/using-vaadin-ui-with-spring-boot-for-sprin
 https://github.com/theMightyFly/demo-spring-vaadin/blob/master/src/main/java/demo/DemoApplication.java
 http://spring.io/guides/gs/crud-with-vaadin/
 
+-- Mongo DB
+
+[12:01:23@~]$ brew install mongodb
+==> Downloading https://homebrew.bintray.com/bottles/mongodb-3.2.1.yosemite.bott
+######################################################################## 100.0%
+==> Pouring mongodb-3.2.1.yosemite.bottle.tar.gz
+==> Caveats
+To reload mongodb after an upgrade:
+  launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
+  launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
+Or, if you don't want/need launchctl, you can just run:
+  mongod --config /usr/local/etc/mongod.conf
+==> Summary
+🍺  /usr/local/Cellar/mongodb/3.2.1: 17 files, 208.4M
+
 - A REST-full server
 
 https://spring.io/guides/gs/actuator-service/
