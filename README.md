@@ -1,11 +1,17 @@
 The BHAA web based registration application.
 
-- vaadin & mongo db
+# MVP
+https://github.com/sockeqwe/Vaadin-MVP-Lite/wiki/Model-View-Presenter:-Using-MVP-Lite
+https://vaadin.com/web/magi/home/-/blogs/model-view-presenter-pattern-with-vaadin
+https://vaadin.com/blog/-/blogs/is-mvp-a-best-practice-
+https://nirajrules.wordpress.com/2009/07/18/mvc-vs-mvp-vs-mvvm/
+
+# Vaadin & mongo db
 http://ralf.schaeftlein.de/2015/03/26/using-vaadin-ui-with-spring-boot-for-spring-data-backend-based-on-mongodb/
 https://github.com/theMightyFly/demo-spring-vaadin/blob/master/src/main/java/demo/DemoApplication.java
 http://spring.io/guides/gs/crud-with-vaadin/
 
--- Mongo DB
+# Mongo DB
 
 [12:01:23@~]$ brew install mongodb
 ==> Downloading https://homebrew.bintray.com/bottles/mongodb-3.2.1.yosemite.bott
