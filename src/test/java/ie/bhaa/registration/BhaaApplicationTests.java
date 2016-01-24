@@ -1,7 +1,5 @@
 package ie.bhaa.registration;
 
-import ie.bhaa.BhaaApplication;
-import ie.bhaa.domain.wordpress.repository.UserRepository;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -12,7 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @Ignore
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = BhaaApplication.class)
+@SpringApplicationConfiguration(classes = BhaaRegistrationApplication.class)
 //@WebAppConfiguration
 public class BhaaApplicationTests {
 
@@ -22,12 +20,12 @@ public class BhaaApplicationTests {
 	//@Autowired
 	//ClubRepository clubRepository;
 
-	@Autowired
-	UserRepository userRepo;
+	//@Autowired
+	//UserRepository userRepo;
 
 	@Test
 	public void testUser() {
-		Assert.assertNotNull(userRepo);
+	//	Assert.assertNotNull(userRepo);
 //		User user = userRepo.findOne(7713l);
 //		Assert.assertNotNull(user);
 //        System.out.println(user.toString());

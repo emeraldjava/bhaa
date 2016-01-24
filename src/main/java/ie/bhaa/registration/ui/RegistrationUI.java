@@ -1,4 +1,4 @@
-package ie.bhaa.ui;
+package ie.bhaa.registration.ui;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.navigator.Navigator;
@@ -7,13 +7,14 @@ import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.spring.navigator.SpringViewProvider;
 import com.vaadin.ui.*;
 import com.vaadin.ui.themes.ValoTheme;
+import ie.bhaa.registration.ui.view.DefaultView;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Created by pauloconnell on 15/01/16.
  */
 @Theme("valo")
-@SpringUI
+//@SpringUI
 public class RegistrationUI extends UI {
 
     @Autowired
@@ -31,7 +32,7 @@ public class RegistrationUI extends UI {
 
         final CssLayout navigationBar = new CssLayout();
         navigationBar.addStyleName(ValoTheme.LAYOUT_COMPONENT_GROUP);
-        navigationBar.addComponent(createNavigationButton("Default View",DefaultView.VIEW_NAME));
+        navigationBar.addComponent(createNavigationButton("Default View", DefaultView.VIEW_NAME));
 //        navigationBar.addComponent(createNavigationButton("MongoDB View",MongoDBUIView.VIEW_NAME));
 
         root.addComponent(navigationBar);

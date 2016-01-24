@@ -1,4 +1,4 @@
-package ie.bhaa.ui;
+package ie.bhaa.registration.ui.view;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;

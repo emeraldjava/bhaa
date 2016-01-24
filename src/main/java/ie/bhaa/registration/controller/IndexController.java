@@ -1,6 +1,6 @@
 package ie.bhaa.registration.controller;
 
-import ie.bhaa.domain.racetec.domain.Runner;
+import ie.bhaa.registration.domain.Runner;
 import org.apache.log4j.Logger;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,7 +26,7 @@ public class IndexController {
   //      return new ModelAndView("index.jsp");
     public ModelAndView index() {
         ModelAndView modelAndView = new ModelAndView("index");
-        modelAndView.getModel().put("greeting",new Runner(1,"index"));
+        modelAndView.getModel().put("greeting",new Runner());//1,"index"));
         logger.info("index "+modelAndView);
         return modelAndView;
     }
@@ -36,9 +36,8 @@ public class IndexController {
 //    @RequestMapping("/rest")
     @RequestMapping(value = "/rest", method = RequestMethod.GET)
     public @ResponseBody Runner getIndexPage() {
-
         logger.info("rest");
-        return new Runner(1,"name");
+        return new Runner();//1,"name");
     }
 
 }

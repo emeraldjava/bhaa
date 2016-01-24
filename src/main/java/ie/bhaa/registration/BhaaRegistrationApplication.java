@@ -1,4 +1,4 @@
-package ie.bhaa;
+package ie.bhaa.registration;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,9 +9,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 //@ComponentScan
 //@EnableAutoConfiguration(exclude = JpaRepositoriesAutoConfiguration.class)
 //@EnableJpaRepositories(basePackages = {"ie.bhaa"})
-public class BhaaApplication {
+public class BhaaRegistrationApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(BhaaApplication.class, args);
+        SpringApplication.run(BhaaRegistrationApplication.class, args);
     }
 }

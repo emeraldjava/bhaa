@@ -1,4 +1,4 @@
-package ie.bhaa.config;
+package ie.bhaa.registration.config;
 
 import com.mongodb.MongoClient;
 import org.springframework.context.annotation.Bean;
