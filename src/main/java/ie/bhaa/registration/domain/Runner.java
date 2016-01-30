@@ -1,5 +1,7 @@
 package ie.bhaa.registration.domain;
 
+import org.springframework.data.annotation.Id;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -8,7 +10,8 @@ import java.util.Date;
  */
 public class Runner implements Serializable, Cloneable {
 
-    private long id;
+    @Id
+    private String id;
     private String firstName = "";
     private String lastName = "";
     private String phone = "";
@@ -18,12 +21,13 @@ public class Runner implements Serializable, Cloneable {
     public Runner() {
     }
 
-    public long getId() {
-        return id;
+    public Runner(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public String getId() {
+        return id;
     }
 
     public String getFirstName() {

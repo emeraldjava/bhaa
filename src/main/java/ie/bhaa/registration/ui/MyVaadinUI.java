@@ -1,29 +1,46 @@
 package ie.bhaa.registration.ui;
 
+import ie.bhaa.registration.ui.event.EventSystem;
+import ie.bhaa.registration.ui.event.ReloadEntriesEvent;
+import ie.bhaa.registration.ui.view.DefaultView;
+import ie.bhaa.registration.ui.view.MongoDBUIView;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.vaadin.annotations.Theme;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.spring.navigator.SpringViewProvider;
-import com.vaadin.ui.*;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.CssLayout;
+import com.vaadin.ui.Panel;
+import com.vaadin.ui.UI;
+import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.themes.ValoTheme;
-import ie.bhaa.registration.ui.view.DefaultView;
-import org.springframework.beans.factory.annotation.Autowired;
 
-/**
- * Created by pauloconnell on 15/01/16.
- */
-//@Theme("valo")
-//@SpringUI
-public class RegistrationUI extends UI {
+//        import demo.ui.event.EventSystem;
+
+@Theme("valo")
+@SpringUI
+public class MyVaadinUI extends UI {
 
     @Autowired
     private SpringViewProvider viewProvider;
 
+    @Autowired
+    EventSystem eventSystem;
+
     @Override
     protected void init(VaadinRequest request) {
-        //setContent(new Label("BHAA REGISTRAION"));
+        initLayout();
+        registerEvents();
+    }
 
+    private void registerEvents() {
+        eventSystem.registerEvent(ReloadEntriesEvent.ReloadEntriesListener.class, ReloadEntriesEvent.class);
+    }
+
+    private void initLayout() {
         final VerticalLayout root = new VerticalLayout();
         root.setSizeFull();
         root.setMargin(true);
@@ -32,8 +49,9 @@ public class RegistrationUI extends UI {
 
         final CssLayout navigationBar = new CssLayout();
         navigationBar.addStyleName(ValoTheme.LAYOUT_COMPONENT_GROUP);
+
         navigationBar.addComponent(createNavigationButton("Default View", DefaultView.VIEW_NAME));
-//        navigationBar.addComponent(createNavigationButton("MongoDB View",MongoDBUIView.VIEW_NAME));
+        navigationBar.addComponent(createNavigationButton("MongoDB View", MongoDBUIView.VIEW_NAME));
 
         root.addComponent(navigationBar);
 
@@ -53,3 +71,4 @@ public class RegistrationUI extends UI {
         return button;
     }
 }
+

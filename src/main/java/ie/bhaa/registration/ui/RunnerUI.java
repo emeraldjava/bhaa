@@ -13,9 +13,9 @@ import ie.bhaa.registration.ui.form.RunnerForm;
  * Created by pauloconnell on 24/01/16.
  * https://vaadin.com/tutorial
  */
-@Title("RunnerUI")
-@Theme("valo")
-@SpringUI
+//@Title("RunnerUI")
+//@Theme("valo")
+//@SpringUI
 public class RunnerUI extends UI {
 
     //HUNDREDS OF WIDGETS
