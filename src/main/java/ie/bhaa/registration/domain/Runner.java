@@ -12,6 +12,7 @@ public class Runner implements Serializable, Cloneable {
 
     @Id
     private String id;
+    private Long bhaaId;
     private String firstName = "";
     private String lastName = "";
     private String phone = "";
@@ -21,13 +22,22 @@ public class Runner implements Serializable, Cloneable {
     public Runner() {
     }
 
-    public Runner(String firstName, String lastName) {
+    public Runner(Long bhaaId, String firstName, String lastName) {
+        this.bhaaId = bhaaId;
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
     public String getId() {
         return id;
+    }
+
+    public Long getBhaaId() {
+        return bhaaId;
+    }
+
+    public void setBhaaId(Long bhaaId) {
+        this.bhaaId = bhaaId;
     }
 
     public String getFirstName() {

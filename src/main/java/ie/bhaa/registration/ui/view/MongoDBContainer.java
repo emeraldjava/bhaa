@@ -14,9 +14,9 @@ public class MongoDBContainer extends BeanContainer<String, Runner> {
 
     public static final String BEAN_ID = "id";
 
-    public static final Object[] PROPERTIES = {BEAN_ID, "firstName", "lastName"};
+    public static final Object[] PROPERTIES = {"bhaaId", "firstName", "lastName"};
 
-    public static final String[] HEADERS = {"ID", "First Name", "Last Name"};
+    public static final String[] HEADERS = {"BHAA ID", "First Name", "Last Name"};
 
     public MongoDBContainer() {
         super(Runner.class);

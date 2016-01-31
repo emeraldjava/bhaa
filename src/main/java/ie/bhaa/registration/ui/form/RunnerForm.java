@@ -29,6 +29,7 @@ public class RunnerForm extends FormLayout {
     private EventSystem eventSystem;
 
     private String id = null;
+    private TextField bhaaIdTextField = new TextField("BHAA ID:");
     private TextField firstName = new TextField("First Name:");
     private TextField lastName = new TextField("Last Name:");
 
@@ -36,13 +37,15 @@ public class RunnerForm extends FormLayout {
         initForm();
     }
 
-    public void setData(Runner customer){
-        id = String.valueOf(customer.getId());
-        firstName.setValue(customer.getFirstName());
-        lastName.setValue(customer.getLastName());
+    public void setData(Runner runner){
+        id = String.valueOf(runner.getId());
+        bhaaIdTextField.setValue(String.valueOf(runner.getBhaaId()));
+        firstName.setValue(runner.getFirstName());
+        lastName.setValue(runner.getLastName());
     }
 
     private void initForm() {
+        addComponent(bhaaIdTextField);
         addComponent(firstName);
         addComponent(lastName);
 
@@ -76,17 +79,20 @@ public class RunnerForm extends FormLayout {
         if(id!=null){
             log.info("Update user with id {}, name {} and address {}", id, firstName.getValue(), lastName.getValue());
             Runner customer = customerService.findOne(id);
+            customer.setBhaaId(Long.valueOf(bhaaIdTextField.getValue()));
             customer.setFirstName(firstName.getValue());
             customer.setLastName(lastName.getValue());
             customerService.save(customer);
         }
         else {
             log.info("Creating user with name {} and address {}", firstName.getValue(), lastName.getValue());
-            customerService.save(new Runner(firstName.getValue(), lastName.getValue()));
+            customerService.save(new Runner(
+                    Long.valueOf(bhaaIdTextField.getValue()),firstName.getValue(), lastName.getValue()));
         }
     }
 
     private void clearAndHide() {
+        bhaaIdTextField.setValue("");
         firstName.setValue("");
         lastName.setValue("");
         id = null;

@@ -28,8 +28,8 @@ public class BhaaRegistrationApplication implements CommandLineRunner {
         repository.deleteAll();
 
         // save a couple of Runners  
-        repository.save(new Runner("Alice", "Smith"));
-        repository.save(new Runner("Bob", "Smith"));
+        repository.save(new Runner(1l,"Alice","Smith"));
+        repository.save(new Runner(2l,"Bob","Smith"));
 
         // fetch all Runners  
         System.out.println("Runners found with findAll():");
