@@ -23,7 +23,7 @@ public class RunnerForm extends FormLayout {
     private Logger log = LoggerFactory.getLogger(RunnerForm.class);
 
     @Autowired
-    private RunnerRepository customerService;
+    private RunnerRepository runnerService;
 
     @Autowired
     private EventSystem eventSystem;
@@ -68,26 +68,24 @@ public class RunnerForm extends FormLayout {
         });
 
         final HorizontalLayout buttonBar = new HorizontalLayout();
-
         buttonBar.addComponent(commit);
         buttonBar.addComponent(cancel);
-
         addComponent(buttonBar);
     }
 
     private void commitForm() {
         if(id!=null){
             log.info("Update user with id {}, name {} and address {}", id, firstName.getValue(), lastName.getValue());
-            Runner customer = customerService.findOne(id);
+            Runner customer = runnerService.findOne(id);
             customer.setBhaaId(Long.valueOf(bhaaIdTextField.getValue()));
             customer.setFirstName(firstName.getValue());
             customer.setLastName(lastName.getValue());
-            customerService.save(customer);
+            runnerService.save(customer);
         }
         else {
             log.info("Creating user with name {} and address {}", firstName.getValue(), lastName.getValue());
-            customerService.save(new Runner(
-                    Long.valueOf(bhaaIdTextField.getValue()),firstName.getValue(), lastName.getValue()));
+            runnerService.save(new Runner(
+                    Long.valueOf(bhaaIdTextField.getValue()), firstName.getValue(), lastName.getValue()));
         }
     }
 

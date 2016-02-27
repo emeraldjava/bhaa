@@ -6,6 +6,7 @@ import javax.annotation.PostConstruct;
 
 import ie.bhaa.registration.domain.Runner;
 import ie.bhaa.registration.domain.RunnerRepository;
+import ie.bhaa.registration.ui.container.RunnerBeanContainer;
 import ie.bhaa.registration.ui.event.EventSystem;
 import ie.bhaa.registration.ui.event.ReloadEntriesEvent;
 import ie.bhaa.registration.ui.form.RunnerForm;
@@ -37,7 +38,7 @@ public class MongoDBUIView extends VerticalLayout implements View,ReloadEntriesE
     private Button editButton;
 
     @Autowired
-    private MongoDBContainer mongodbContainer;
+    private RunnerBeanContainer mongodbContainer;
 
     @Autowired
     private RunnerForm editForm;
@@ -66,8 +67,8 @@ public class MongoDBUIView extends VerticalLayout implements View,ReloadEntriesE
         // vaadin table
         entityTable = new Table();
         entityTable.setContainerDataSource(mongodbContainer);
-        entityTable.setVisibleColumns(MongoDBContainer.PROPERTIES);
-        entityTable.setColumnHeaders(MongoDBContainer.HEADERS);
+        entityTable.setVisibleColumns(RunnerBeanContainer.PROPERTIES);
+        entityTable.setColumnHeaders(RunnerBeanContainer.HEADERS);
         entityTable.setSelectable(true);
         entityTable.setWidth("100%");
         entityTable.setHeight("300px");

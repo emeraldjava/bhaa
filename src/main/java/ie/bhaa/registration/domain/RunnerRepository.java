@@ -11,7 +11,7 @@ import java.util.List;
  */
 public interface RunnerRepository extends MongoRepository<Runner, String> {
 
-    public Runner findByFirstName(String firstName);
+    //public Runner findByFirstName(String firstName);
 
     public List<Runner> findByLastName(String lastName);
 

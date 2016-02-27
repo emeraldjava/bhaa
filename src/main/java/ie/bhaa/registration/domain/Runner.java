@@ -1,6 +1,10 @@
 package ie.bhaa.registration.domain;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.CompoundIndex;
+import org.springframework.data.mongodb.core.index.CompoundIndexes;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -8,10 +12,15 @@ import java.util.Date;
 /**
  * Created by pauloconnell on 26/06/15.
  */
+@Document
+@CompoundIndexes({
+        @CompoundIndex(name = "name_idx", def = "{'firstName': 1, 'lastName': 1}")
+})
 public class Runner implements Serializable, Cloneable {
 
     @Id
     private String id;
+    @Indexed(unique = true)
     private Long bhaaId;
     private String firstName = "";
     private String lastName = "";
