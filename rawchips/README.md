@@ -1,1 +1,3 @@
 Rawchips
+
+http://www.concretepage.com/spring-batch-3/spring-batch-3-annotation-example-using-mysql-gradle
