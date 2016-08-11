@@ -7,13 +7,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-
 @SpringBootApplication
-//@Configuration
-//@ComponentScan
-//@EnableAutoConfiguration(exclude = JpaRepositoriesAutoConfiguration.class)
-//@EnableJpaRepositories(basePackages = {"ie.bhaa"})
-public class BhaaRegistrationApplication { //implements CommandLineRunner {
+public class BhaaRegistrationApplication {
 
     @Autowired
     private RunnerRepository repository;
