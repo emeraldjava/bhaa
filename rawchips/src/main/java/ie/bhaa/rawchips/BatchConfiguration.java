@@ -94,6 +94,7 @@ public class BatchConfiguration {
     public Step step() { //StepBuilderFactory stepBuilderFactory, ItemReader<RawChip> reader,
                      //ItemWriter<Object> writer, ItemProcessor<RawChip, Object> processor) {
         return stepBuilderFactory.get("step")
+                //.tasklet()
                 .<RawChip, Object> chunk(5)
                 .reader(reader())
                 .processor(processor())

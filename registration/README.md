@@ -1,5 +1,9 @@
 The BHAA web based registration application.
 
+http://alexo.github.io/wro4j/
+https://spring.io/blog/2015/01/12/spring-and-angular-js-a-secure-single-page-application
+https://spring.io/blog/2015/08/19/migrating-a-spring-web-mvc-application-from-jsp-to-angularjs
+
 # MVP
 https://github.com/sockeqwe/Vaadin-MVP-Lite/wiki/Model-View-Presenter:-Using-MVP-Lite
 https://vaadin.com/web/magi/home/-/blogs/model-view-presenter-pattern-with-vaadin

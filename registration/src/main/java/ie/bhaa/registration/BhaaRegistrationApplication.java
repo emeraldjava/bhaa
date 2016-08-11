@@ -22,7 +22,7 @@ public class BhaaRegistrationApplication implements CommandLineRunner {
         SpringApplication.run(BhaaRegistrationApplication.class, args);
     }
 
-    @Override
+    //@Override
     public void run(String... args) throws Exception {
 
         repository.deleteAll();
@@ -40,9 +40,9 @@ public class BhaaRegistrationApplication implements CommandLineRunner {
         System.out.println();
 
         // fetch an individual Runner  
-        System.out.println("Runner found with findByFirstName('Alice'):");
-        System.out.println("--------------------------------");
-        System.out.println(repository.findByFirstName("Alice"));
+//        System.out.println("Runner found with findByFirstName('Alice'):");
+//        System.out.println("--------------------------------");
+//        System.out.println(repository.findByFirstName("Alice"));
 
         System.out.println("Runners found with findByLastName('Smith'):");
         System.out.println("--------------------------------");
