@@ -13,7 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 //@ComponentScan
 //@EnableAutoConfiguration(exclude = JpaRepositoriesAutoConfiguration.class)
 //@EnableJpaRepositories(basePackages = {"ie.bhaa"})
-public class BhaaRegistrationApplication implements CommandLineRunner {
+public class BhaaRegistrationApplication { //implements CommandLineRunner {
 
     @Autowired
     private RunnerRepository repository;
@@ -23,31 +23,31 @@ public class BhaaRegistrationApplication implements CommandLineRunner {
     }
 
     //@Override
-    public void run(String... args) throws Exception {
-
-        repository.deleteAll();
-
-        // save a couple of Runners  
-        repository.save(new Runner(1l,"Alice","Smith"));
-        repository.save(new Runner(2l,"Bob","Smith"));
-
-        // fetch all Runners  
-        System.out.println("Runners found with findAll():");
-        System.out.println("-------------------------------");
-        for (Runner runner : repository.findAll()) {
-            System.out.println(runner);
-        }
-        System.out.println();
-
-        // fetch an individual Runner  
-//        System.out.println("Runner found with findByFirstName('Alice'):");
+//    public void run(String... args) throws Exception {
+//
+//        repository.deleteAll();
+//
+//        // save a couple of Runners
+//        repository.save(new Runner(1l,"Alice","Smith"));
+//        repository.save(new Runner(2l,"Bob","Smith"));
+//
+//        // fetch all Runners
+//        System.out.println("Runners found with findAll():");
+//        System.out.println("-------------------------------");
+//        for (Runner runner : repository.findAll()) {
+//            System.out.println(runner);
+//        }
+//        System.out.println();
+//
+//        // fetch an individual Runner
+////        System.out.println("Runner found with findByFirstName('Alice'):");
+////        System.out.println("--------------------------------");
+////        System.out.println(repository.findByFirstName("Alice"));
+//
+//        System.out.println("Runners found with findByLastName('Smith'):");
 //        System.out.println("--------------------------------");
-//        System.out.println(repository.findByFirstName("Alice"));
-
-        System.out.println("Runners found with findByLastName('Smith'):");
-        System.out.println("--------------------------------");
-        for (Runner Runner : repository.findByLastName("Smith")) {
-            System.out.println(Runner);
-        }
-    }
+//        for (Runner Runner : repository.findByLastName("Smith")) {
+//            System.out.println(Runner);
+//        }
+//    }
 }
