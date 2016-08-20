@@ -3,20 +3,23 @@
  */
 //angular.module('bhaaWebApp',['ui.bootstrap']);
 
-angular.module('app',[]).controller('TabsDemoCtrl', function ($scope, $window) {
-    $scope.tabs = [
-        { title:'Dynamic Title 1', content:'Dynamic content 1' },
-        { title:'Dynamic Title 2', content:'Dynamic content 2', disabled: true }
-    ];
+angular.module('app',['ui.bootstrap'])
+    .controller('tabsDemoCtrl', function ($scope, $window) {
+        $scope.tabs = [
+            { title:'Dynamic Title 1', content:'Dynamic content 1' },
+            { title:'Dynamic Title 2', content:'Dynamic content 2', disabled: true }
+        ];
 
-    $scope.alertMe = function() {
-        setTimeout(function() {
-            $window.alert('You selected the alert tab!');
-        });
-    };
-}).controller('home', function($scope) {
-    $scope.greeting = {id: 'xxx', content: 'Hello World!'}
-});
+        $scope.alertMe = function() {
+            setTimeout(function() {
+                $window.alert('You selected the alert tab!');
+            });
+        };
+    })
+    .controller('home', function($scope) {
+        $scope.greeting = {id: 'xxx', content: 'Hello World!'}
+    })
+;
 
 
 function Hello($scope, $http) {
