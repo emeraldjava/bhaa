@@ -12,15 +12,15 @@ import java.util.Date;
 /**
  * Created by pauloconnell on 26/06/15.
  */
-@Document
-@CompoundIndexes({
-        @CompoundIndex(name = "name_idx", def = "{'firstName': 1, 'lastName': 1}")
-})
+//@Document
+//@CompoundIndexes({
+//        @CompoundIndex(name = "name_idx", def = "{'firstName': 1, 'lastName': 1}")
+//})
 public class Runner implements Serializable, Cloneable {
 
-    @Id
+    //@Id
     private String id;
-    @Indexed(unique = true)
+    //@Indexed(unique = true)
     private Long bhaaId;
     private String firstName = "";
     private String lastName = "";
