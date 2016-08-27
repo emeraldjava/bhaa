@@ -2,59 +2,141 @@
 <!--[if lt IE 7]>      <html lang="en" ng-app="app" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html lang="en" ng-app="app" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html lang="en" ng-app="app" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="app" class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="app" class="no-js"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>BHAA Registration App</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--<link rel="stylesheet" href="/css/app.css">-->
 </head>
 <body ng-app="app">
 
-<h2>Administrator Panel</h2>
-<div class="home-section">
-    <ul class="menu-list">
-        <li><a href="#/users">Users</a></li>
-        <li><a href="#/roles">Roles</a></li>
-    </ul>
-</div>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                </button>
+                <a class="navbar-brand" href="#">BHAA Registration App</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <form class="navbar-form navbar-right">
+                    <!--<div class="form-group">-->
+                        <!--<input type="text" placeholder="Email" class="form-control">-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<input type="password" placeholder="Password" class="form-control">-->
+                    <!--</div>-->
+                    <!--<button type="submit" class="btn btn-success">Sign in</button>-->
+                </form>
+            </div><!--/.navbar-collapse -->
+        </div>
+    </nav>
 
-<div class="container">
-    <h1>Greeting</h1>
-    <div ng-controller="home" ng-cloak class="ng-cloak">
-        <p>The ID is {{greeting.id}}</p>
-        <p>The content is {{greeting.content}}</p>
+    <div class="jumbotron">
+        <div class="container">
+
+            <uib-tabset active="active">
+                <uib-tab index="0" heading="Member">
+                    <div class='container-fluid typeahead-demo' ng-controller="memberTypeaheadCtrl">
+                        <h4>Search for BHAA Member</h4>
+                        <!--<pre>Model: {{selected | json}}</pre>-->
+                        <input type="text"
+                               ng-model="runnerSelected"
+                               uib-typeahead="runner as runner.label for runner in runners | filter:$viewValue | limitTo:10"
+                               typeahead-editable="false"
+                               typeahead-on-select="model=$item.value"
+                               typeahead-loading="loadingLocations"
+                               typeahead-no-results="noResults"
+                               class="form-control"/>
+                        <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+                        <div ng-show="noResults">
+                            <i class="glyphicon glyphicon-remove"></i> No Results Found
+                        </div>
+                        <pre>Member: {{runnerSelected | json}}</pre>
+
+                    </div>
+                </uib-tab>
+                <uib-tab index="1" heading="New" select="alertMe()">New</uib-tab>
+                <uib-tab index="2" heading="List" select="alertMe()">List</uib-tab>
+                <uib-tab index="3" heading="Export" select="alertMe()">
+                    <uib-tab-heading>
+                        <i class="glyphicon glyphicon-bell"></i> Alert!
+                    </uib-tab-heading>
+                    I've got an HTML heading, and a select callback. Pretty cool!
+                </uib-tab>
+            </uib-tabset>
+
+            <div ng-view/>
+
+        </div>
+
+        <hr/><hr/>
+        <div ng-controller="InvoiceController as invoice">
+            <b>Invoice:</b>
+            <div>
+                Quantity: <input type="number" min="0" ng-model="invoice.qty" required >
+            </div>
+            <div>
+                Costs: <input type="number" min="0" ng-model="invoice.cost" required >
+                <select ng-model="invoice.inCurr">
+                    <option ng-repeat="c in invoice.currencies">{{c}}</option>
+                </select>
+            </div>
+            <div>
+                <b>Total:</b>
+    <span ng-repeat="c in invoice.currencies">
+      {{invoice.total(c) | currency:c}}
+    </span>
+                <button class="btn" ng-click="invoice.pay()">Pay</button>
+            </div>
+        </div>
+
+        <!--<div class="container">-->
+            <!--<h1>Greeting</h1>-->
+            <!--<div ng-controller="home" ng-cloak class="ng-cloak">-->
+                <!--<p>The ID is {{greeting.id}}</p>-->
+                <!--<p>The content is {{greeting.content}}</p>-->
+            <!--</div>-->
+        <!--</div>-->
+
     </div>
+
+    <!--<div class="container" ng-controller="tabsDemoCtrl">-->
+    <!--<p>Select a tab by setting active binding to true:</p>-->
+    <!--<p>-->
+        <!--<button class="btn btn-default btn-sm" ng-click="tabs[0].active = true">Select second tab</button>-->
+        <!--<button class="btn btn-default btn-sm" ng-click="tabs[1].active = true">Select third tab</button>-->
+    <!--</p>-->
+    <!--<p>-->
+        <!--<button class="btn btn-default btn-sm" ng-click="tabs[1].disabled = ! tabs[1].disabled">Enable / Disable third tab</button>-->
+    <!--</p>-->
+    <!--<hr/>-->
+
+    <!--<tabset>-->
+        <!--<tab heading="Static title">Static content</tab>-->
+        <!--<tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disable="tab.disabled">-->
+            <!--{{tab.content}}-->
+        <!--</tab>-->
+        <!--<tab select="alertMe()">-->
+            <!--<tab-heading>-->
+                <!--<i class="glyphicon glyphicon-bell"></i> Alert!-->
+            <!--</tab-heading>-->
+            <!--I've got an HTML heading, and a select callback. Pretty cool!-->
+        <!--</tab>-->
+    <!--</tabset>-->
+    <!--</div>-->
+
+
+
+
+    <footer>
+        <p>BHAA 2016</p>
+    </footer>
+
 </div>
-
-<div ng-controller="tabsDemoCtrl">
-    <p>Select a tab by setting active binding to true:</p>
-    <p>
-        <button class="btn btn-default btn-sm" ng-click="tabs[0].active = true">Select second tab</button>
-        <button class="btn btn-default btn-sm" ng-click="tabs[1].active = true">Select third tab</button>
-    </p>
-    <p>
-        <button class="btn btn-default btn-sm" ng-click="tabs[1].disabled = ! tabs[1].disabled">Enable / Disable third tab</button>
-    </p>
-    <hr/>
-
-    <tabset>
-        <tab heading="Static title">Static content</tab>
-        <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disable="tab.disabled">
-            {{tab.content}}
-        </tab>
-        <tab select="alertMe()">
-            <tab-heading>
-                <i class="glyphicon glyphicon-bell"></i> Alert!
-            </tab-heading>
-            I've got an HTML heading, and a select callback. Pretty cool!
-        </tab>
-    </tabset>
-    </div>
-
-<div ng-view></div>
 <script src="./lib/angularjs/1.5.8/angular.min.js"></script>
 <script src="./lib/angularjs/1.5.8/angular-resource.min.js"></script>
 <script src="./lib/angularjs/1.5.8/angular-route.min.js"></script>
@@ -64,7 +146,11 @@
 
 <!--<script src="/js/angular-bootstrap.js" type="text/javascript"></script>-->
 <!--<script src="/js/hello.js"></script>-->
-<script src="./app/app.module.js"></script>
+    <script src="./js/bhaa_members.js"></script>
+
+    <script src="./app/app.service.js"></script>
+    <script src="./app/app.module.js"></script>
+
 
 <!--<script src="/js/app.js"></script>-->
 <!--<script src="/js/controller.js"></script>-->
