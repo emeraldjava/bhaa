@@ -10,6 +10,4 @@ Uses EhCache to maintain the list of currently entered users (no DB).
 
 ### Travis CI
 
-https://travis-ci.org/emeraldjava/bhaa
-
-
+[![Build Status](https://travis-ci.org/emeraldjava/bhaa.svg?branch=master)](https://travis-ci.org/emeraldjava/bhaa)
