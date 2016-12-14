@@ -1,10 +1,10 @@
 language: java
 jdk:
-  - oraclejdk7
+  - oraclejdk8
 env:
   matrix:
 
-script: mvn clean install
+script: mvn clean package
 
 notifications:
   email:
