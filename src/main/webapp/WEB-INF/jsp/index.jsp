@@ -1,5 +1,8 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html ng-app>
+<!DOCTYPE html>
+
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<html lang="en">
     <head>
         <title>Hello AngularJS</title>
 
@@ -24,11 +27,18 @@
     </head>
 
     <body>
-    <div ng-controller="Hello">
-        <p>The ID is {{greeting.id}}</p>
-        <p>The content is {{greeting.name}}</p>
+    <div>
+        Message: ${message}
+
+        <c:url value="/xresources/text.txt" var="url"/>
+        <spring:url value="/resources/text.txt" htmlEscape="true" var="springUrl" />
+        Spring URL: ${springUrl} at ${time}
+        <br>
+        JSTL URL: ${url}
+        <br>
+
     </div>
 
-    <img src="<c:url value="/resources/images/bhaa-logo.jpg" />" />
+    <img src="<c:url value="/images/bhaa-logo.jpg" />" />
     </body>
 </html>
