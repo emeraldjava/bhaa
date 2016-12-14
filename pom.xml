@@ -11,7 +11,7 @@
 
 	<modules>
 		<module>registration</module>
-		<module>rawchips</module>
+		<!--<module>rawchips</module>-->
 	</modules>
 
 </project>
