@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface RegistrationService {
 
-    void registerRunner(Runner runner);
+    Runner saveRunner(Runner runner);
 
     List<Runner> getRegisteredRunners();
 

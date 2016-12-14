@@ -26,8 +26,9 @@ public class RegistrationServiceBean implements RegistrationService {
     }
 
     @Override
-    public void registerRunner(Runner runner) {
+    public Runner saveRunner(Runner runner) {
         runners.add(runner);
+        return runner;
     }
 
     @Override
