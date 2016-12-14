@@ -1,0 +1,11 @@
+language: java
+jdk:
+  - oraclejdk7
+env:
+  matrix:
+
+script: mvn clean install
+
+notifications:
+  email:
+    recipients: paul.t.oconnell@gmail.com
