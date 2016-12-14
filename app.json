@@ -1,0 +1,8 @@
+{
+  "name": "Spring Boot BHAA Heroku Demo",
+  "description": "This is a small demo application for showing how to run a Spring Boot application on Heroku.",
+  "website": "https://github.com/emeraldjava/bhaa",
+  "repository": "https://github.com/emeraldjava/bhaa",
+  "image": "heroku/java",
+  "addons": [ ]
+}
