@@ -27,6 +27,8 @@
     </head>
 
     <body>
+    Menu:: <jsp:include page="/WEB-INF/jsp/menu.jsp" />
+
     <div>
         Message: ${message}
 
