@@ -1,5 +1,6 @@
 package ie.bhaa.registration.controller;
 
+import ie.bhaa.registration.enumeration.Page;
 import ie.bhaa.registration.service.RegistrationService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,45 +25,32 @@ public class IndexController {
     @Autowired
     private RegistrationService registrationService;
 
-    private Map menu;
-
-    @PostConstruct
-    private Map loadMenu() {
-        menu = new LinkedHashMap<>();
-        menu.put("member","Members");
-        menu.put("daymember","Day Members");
-        menu.put("list","List");
-        menu.put("export","Export");
-        menu.put("admin","Admin");
-        return menu;
-    }
-
     @RequestMapping("/")
     public String index(Map<String, Object> model) {
         model.put("time", new Date());
         model.put("message", this.message);
-        model.put("menu",menu);
+        model.put("menu",Page.values());
         return "member";
     }
 
     @RequestMapping("/member")
     public String member(Map<String, Object> model) {
         model.put("registeredRunners", registrationService.getRegisteredRunners());
-        model.put("menu",menu);
+        model.put("menu",Page.values());
         return "member";
     }
 
     @RequestMapping("/daymember")
     public String daymember(Map<String, Object> model) {
         model.put("registeredRunners", registrationService.getRegisteredRunners());
-        model.put("menu",menu);
+        model.put("menu",Page.values());
         return "daymember";
     }
 
     @RequestMapping("/list")
     public String list(Map<String, Object> model) {
         model.put("registeredRunners", registrationService.getRegisteredRunners());
-        model.put("menu",menu);
+        model.put("menu",Page.values());
         return "list";
     }
 }

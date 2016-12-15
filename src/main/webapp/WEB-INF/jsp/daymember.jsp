@@ -10,9 +10,8 @@
 
 <body>
 <div class="container">
-Menu:: <jsp:include page="/WEB-INF/jsp/menu.jsp" />
-
-Day Member Page
+<jsp:include page="/WEB-INF/jsp/menu.jsp" />
+<h2>Day Member Page</h2>
 </div>
 
 <script src="/webjars/jquery/2.2.4/jquery.min.js"></script>

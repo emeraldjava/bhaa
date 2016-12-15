@@ -10,8 +10,8 @@
 
     <body>
     <div class="container">
-    Menu:: <jsp:include page="/WEB-INF/jsp/menu.jsp" />
-
+    <jsp:include page="/WEB-INF/jsp/menu.jsp" />
+    <h2>Index Page</h2>
     <div>
         Message: ${message}
 

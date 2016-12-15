@@ -11,11 +11,8 @@
 
 <body>
 <div class="container">
-
 <jsp:include page="/WEB-INF/jsp/menu.jsp"/>
-
-<div>Member Page</div>
-
+<h2>Member Page</h2>
 </div>
 <script src="/webjars/jquery/2.2.4/jquery.min.js"></script>
 <script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>

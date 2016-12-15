@@ -12,7 +12,7 @@
 
     <div class="container">
     <jsp:include page="/WEB-INF/jsp/menu.jsp" />
-    <h2>List Page</h2>
+    <h2>Pre-Reg Page</h2>
 
     <ul>
         <c:forEach items="${runners}" var="runner">
