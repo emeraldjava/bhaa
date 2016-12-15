@@ -5,12 +5,17 @@
 <html lang="en">
 <head>
     <title>BHAA Registration Day Member</title>
+    <jsp:include page="/WEB-INF/jsp/header.jsp" />
 </head>
 
 <body>
+<div class="container">
 Menu:: <jsp:include page="/WEB-INF/jsp/menu.jsp" />
 
-<div>Day Member Page
+Day Member Page
 </div>
+
+<script src="/webjars/jquery/2.2.4/jquery.min.js"></script>
+<script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>

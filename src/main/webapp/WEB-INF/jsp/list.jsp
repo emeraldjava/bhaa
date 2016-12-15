@@ -5,14 +5,17 @@
 <html lang="en">
     <head>
         <title>BHAA Registration List</title>
+        <jsp:include page="/WEB-INF/jsp/header.jsp" />
     </head>
 
     <body>
+
+    <div class="container">
     Menu:: <jsp:include page="/WEB-INF/jsp/menu.jsp" />
 
     <div>List Page</div>
 
-    <h1><spring:message code="user.list" /></h1>
+
     <ul>
         <c:forEach items="${runners}" var="runner">
             <li>
@@ -20,6 +23,9 @@
             </li>
         </c:forEach>
     </ul>
+    </div>
 
+    <script src="/webjars/jquery/2.2.4/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </body>
 </html>

@@ -32,7 +32,8 @@ public class IndexController {
         menu.put("member","Members");
         menu.put("daymember","Day Members");
         menu.put("list","List");
-        //menu.put("export","Export");
+        menu.put("export","Export");
+        menu.put("admin","Admin");
         return menu;
     }
 
@@ -41,7 +42,7 @@ public class IndexController {
         model.put("time", new Date());
         model.put("message", this.message);
         model.put("menu",menu);
-        return "index";
+        return "member";
     }
 
     @RequestMapping("/member")

@@ -4,29 +4,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html lang="en">
     <head>
-        <title>Hello AngularJS</title>
-
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <!-- jQuery -->
-        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-
-        <!-- Bootstrap -->
-        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-
-        <!-- AngularJS -->
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-route.min.js"></script>
-
-        <!-- AngularJS -->
-        <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
-
-        <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>-->
-        <script src="../resources/js/app.js"></script>
+        <title>Hello BHAA App</title>
+        <jsp:include page="/WEB-INF/jsp/header.jsp" />
     </head>
 
     <body>
+    <div class="container">
     Menu:: <jsp:include page="/WEB-INF/jsp/menu.jsp" />
 
     <div>
@@ -40,7 +23,11 @@
         <br>
 
     </div>
+    </div>
+    <%--<img src="<c:url value="/images/bhaa-logo.jpg" />" />--%>
 
-    <img src="<c:url value="/images/bhaa-logo.jpg" />" />
+    <!-- http://javacodingsamples.blogspot.ie/2015/04/utilizing-webjars-in-spring-mvc_7.html -->
+    <script src="/webjars/jquery/2.2.4/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </body>
 </html>
