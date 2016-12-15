@@ -53,4 +53,22 @@ public class IndexController {
         model.put("menu",Page.values());
         return "list";
     }
+
+    @RequestMapping("/export")
+    public String export(Map<String, Object> model) {
+        model.put("menu",Page.values());
+        return "export";
+    }
+
+    @RequestMapping("/prereg")
+    public String prereg(Map<String, Object> model) {
+        model.put("menu",Page.values());
+        return "prereg";
+    }
+
+    @RequestMapping("/admin")
+    public String admin(Map<String, Object> model) {
+        model.put("menu",Page.values());
+        return "admin";
+    }
 }

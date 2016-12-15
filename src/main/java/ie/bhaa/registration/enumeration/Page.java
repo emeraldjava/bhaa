@@ -5,11 +5,11 @@ package ie.bhaa.registration.enumeration;
  */
 public enum Page {
 
-    MEMBER("Member","btn-primary"),
-    DAYMEMBER("Day Member","btn-info"),
-    PREREGISTERED("Pre Reg","btn-success"),
-    LIST("List","btn-warning"),
-    EXPORT("Export","btn-danger"),
+    MEMBER("Member","primary"),
+    DAYMEMBER("Day Member","info"),
+    PREREGISTERED("Pre Reg","success"),
+    LIST("List","warning"),
+    EXPORT("Export","danger"),
     ADMIN("Admin","");
 
     private String display;
