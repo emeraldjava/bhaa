@@ -10,14 +10,42 @@
 <body>
 <div class="container">
 <jsp:include page="/WEB-INF/jsp/menu.jsp"/>
-<h2>Member Page</h2>
-<div class="panel-body">
-    <div class="row">
-        <div class="ui-widget input-group col-md-12">
-            <input type="text" id="memberfilter" class="search-query form-control" placeholder="Search by Name or ID"/>
+    <div class="panel-heading">
+        <h3>Register BHAA Members</h3>
+    </div>
+
+    <div class="panel-body">
+        <div class="row">
+            <div class="ui-widget input-group col-md-12">
+                <input type="text" id="memberfilter" class="search-query form-control" placeholder="Search by Name or ID"/>
+            </div>
         </div>
     </div>
-</div>
+
+    <div class="row">
+        <form>
+            <fieldset name="race" class="col-md-4" type="fieldset" >
+                <div class="form-group">
+                    <label for="bhaa_racenumber" class="form-label">Race Number</label>
+                    <input id="bhaa_racenumber" type="text" class="form-control" name="bhaa_racenumber" value="">
+                </div>
+
+            </fieldset>
+            <fieldset name="runner" class="col-md-4" type="fieldset">
+                <div class="form-group">
+                    <label for="bhaa_firstname" class="form-label">First Name</label>
+                    <input id="bhaa_firstname" type="text" class="form-control" name="bhaa_firstname" value="">
+                </div>
+            </fieldset>
+            <fieldset name="other" class="col-md-4" type="fieldset">
+                <div class="form-group">
+                    <label for="bhaa_id" class="form-label">BHAA ID</label>
+                    <input id="bhaa_id" type="text" class="form-control" name="bhaa_id" value="">
+                </div>
+            </fieldset>
+            <input id="formSubmitButton" type="submit" class="btn btn-default" value="Register Runner" typeof="button" />
+        </form>
+    </div>
 
 </div>
 <script src="/webjars/jquery/2.2.4/jquery.min.js"></script>
