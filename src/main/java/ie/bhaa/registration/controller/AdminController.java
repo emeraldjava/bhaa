@@ -1,14 +1,20 @@
 package ie.bhaa.registration.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import ie.bhaa.registration.domain.Runner;
 import ie.bhaa.registration.enumeration.Page;
-import ie.bhaa.registration.service.RegistrationService;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.ResourceLoaderAware;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
-import java.util.Date;
+import javax.annotation.PostConstruct;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -16,9 +22,21 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping("/admin")
-public class AdminController {
+public class AdminController implements ResourceLoaderAware {
 
     private Logger logger = Logger.getLogger(AdminController.class);
+    private String DYNAMIC_FOLDER = "/dynamic";
+    private String MEMBERS_JSON = "members.json";
+
+    private File folder;
+    private ResourceLoader resourceLoader;
+
+
+    @PostConstruct
+    public void initFolder() {
+        ClassLoader classLoader = getClass().getClassLoader();
+        //folder = new File(classLoader.getResource(DYNAMIC_FOLDER).getFile());
+    }
 
     @RequestMapping("/")
     public String index(Map<String, Object> model) {
@@ -28,7 +46,8 @@ public class AdminController {
     }
 
     @RequestMapping("/loadFile")
-    public String loadFile(Map<String, Object> model) {
+    public String loadFile(Map<String, Object> model) throws Exception {
+        writeFile(getRunners());
         model.put("menu",Page.values());
         logger.info("loadFile");
         return "/admin";
@@ -36,8 +55,39 @@ public class AdminController {
 
     @RequestMapping("/clearallfiles")
     public String clearallfiles(Map<String, Object> model) {
+        //folder.
         model.put("menu",Page.values());
         logger.info("clearallfiles");
         return "/admin";
+    }
+
+    private String writeFile(List<Runner> list) throws Exception {
+        File folder = this.resourceLoader.getResource("file:dynamic").getFile();
+        logger.info(folder.getAbsolutePath());
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.writeValue(new File(folder,MEMBERS_JSON), list);
+        return MEMBERS_JSON;
+    }
+
+    private List<Runner> getRunners() {
+        List<Runner> list = new ArrayList<Runner>();
+        list.add(new Runner(1000l,"A1","B1"));
+        list.add(new Runner(2000l,"A2","B2"));
+        list.add(new Runner(3000l,"A3","B3"));
+        list.add(new Runner(4000l,"A4","B4"));
+        return list;
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ModelAndView handleAllException(Exception ex) {
+        ModelAndView model = new ModelAndView("error/generic_error");
+        model.addObject("errMsg", ex.getMessage());
+        logger.error(ex);
+        return model;
+    }
+
+    @Override
+    public void setResourceLoader(ResourceLoader resourceLoader) {
+        this.resourceLoader=resourceLoader;
     }
 }
