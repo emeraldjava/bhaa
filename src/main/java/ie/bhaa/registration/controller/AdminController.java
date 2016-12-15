@@ -31,13 +31,6 @@ public class AdminController implements ResourceLoaderAware {
     private File folder;
     private ResourceLoader resourceLoader;
 
-
-    @PostConstruct
-    public void initFolder() {
-        ClassLoader classLoader = getClass().getClassLoader();
-        //folder = new File(classLoader.getResource(DYNAMIC_FOLDER).getFile());
-    }
-
     @RequestMapping("/")
     public String index(Map<String, Object> model) {
         model.put("file", "Filename.json");
@@ -55,7 +48,6 @@ public class AdminController implements ResourceLoaderAware {
 
     @RequestMapping("/clearallfiles")
     public String clearallfiles(Map<String, Object> model) {
-        //folder.
         model.put("menu",Page.values());
         logger.info("clearallfiles");
         return "/admin";
@@ -71,10 +63,14 @@ public class AdminController implements ResourceLoaderAware {
 
     private List<Runner> getRunners() {
         List<Runner> list = new ArrayList<Runner>();
-        list.add(new Runner(1000l,"A1","B1"));
-        list.add(new Runner(2000l,"A2","B2"));
-        list.add(new Runner(3000l,"A3","B3"));
-        list.add(new Runner(4000l,"A4","B4"));
+        list.add(new Runner(1000l,"Paul","B1"));
+        list.add(new Runner(2000l,"Pat","B2"));
+        list.add(new Runner(3000l,"Paaut","B3"));
+        list.add(new Runner(4000l,"Jacobe","B4"));
+        list.add(new Runner(1100l,"xPaul","B1"));
+        list.add(new Runner(2100l,"xPat","B2"));
+        list.add(new Runner(3100l,"xPaaut","B3"));
+        list.add(new Runner(4100l,"xJacobe","B4"));
         return list;
     }
 
