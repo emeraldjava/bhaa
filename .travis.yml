@@ -1,11 +1,11 @@
 language: java
 jdk:
-  - oraclejdk8
+- oraclejdk8
 env:
-  matrix:
-
+  matrix: 
+  global:
+    secure: PoSjt19NerVMc7JMCza7fYz8Yrda1Bj1CoyWBqNWXuh7ra9xcuCvJ3PNZkGlpEYZm/9btE3xSCzBvggaPt7FyJN+b1NbCYW3qcGuqRerrcVNoWyeRImp4oXS/BaF6dIawNvISth8SVf+77rS7J/+gU6ipsWNLyGrrkqx7PoZUGA=
 script: mvn clean package
-
 notifications:
   email:
     recipients: paul.t.oconnell@gmail.com
