@@ -6,11 +6,13 @@ env:
   global:
     secure: PoSjt19NerVMc7JMCza7fYz8Yrda1Bj1CoyWBqNWXuh7ra9xcuCvJ3PNZkGlpEYZm/9btE3xSCzBvggaPt7FyJN+b1NbCYW3qcGuqRerrcVNoWyeRImp4oXS/BaF6dIawNvISth8SVf+77rS7J/+gU6ipsWNLyGrrkqx7PoZUGA=
 script: mvn clean package
-deploy:
- provider: heroku
- api-key:
-  secure: $HEROKU_API_KEY
- app: bhaa
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+#deploy:
+# provider: heroku
+# api-key:
+#  secure: $HEROKU_API_KEY
+# app: bhaa
 notifications:
   email:
     recipients: paul.t.oconnell@gmail.com
