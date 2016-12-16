@@ -12,16 +12,11 @@ Uses EhCache to maintain the list of currently entered users (no DB).
 
 [![Build Status](https://travis-ci.org/emeraldjava/bhaa.svg?branch=master)](https://travis-ci.org/emeraldjava/bhaa)
 
+### Code Coverage
+
+[![codecov](https://codecov.io/gh/emeraldjava/bhaa/branch/master/graph/badge.svg)](https://codecov.io/gh/emeraldjava/bhaa)
+
 ### Heroku
 
 https://dashboard.heroku.com/apps/bhaa
 https://bhaa.herokuapp.com/
-
-
-Autocomplete
-- java endpoint to generate small xml file with details
-- java writes json file to some location and includes in the jsp file
-- standard ui typeahead logic
-- caching of the xml file details
-
-http://stackoverflow.com/questions/25871131/how-to-dynamically-add-static-resources-to-spring-boot-jar-application
