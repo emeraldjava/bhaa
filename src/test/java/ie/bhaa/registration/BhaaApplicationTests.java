@@ -23,7 +23,7 @@ public class BhaaApplicationTests {
 	//@Autowired
 	//UserRepository userRepo;
 
-	@Test
+	//@Test
 	public void testUser() {
 	//	Assert.assertNotNull(userRepo);
 //		User user = userRepo.findOne(7713l);

@@ -3,6 +3,7 @@ package ie.bhaa.registration.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import ie.bhaa.registration.domain.Runner;
 import ie.bhaa.registration.enumeration.Page;
+import ie.bhaa.registration.rest.WordpressClient;
 import org.apache.log4j.Logger;
 import org.springframework.context.ResourceLoaderAware;
 import org.springframework.core.io.ResourceLoader;
@@ -26,7 +27,7 @@ public class AdminController implements ResourceLoaderAware {
 
     private Logger logger = Logger.getLogger(AdminController.class);
     private String DYNAMIC_FOLDER = "/dynamic";
-    private String MEMBERS_JSON = "members.json";
+    private String MEMBERS_JSON = "members-list.json";
 
     private File folder;
     private ResourceLoader resourceLoader;
@@ -40,6 +41,10 @@ public class AdminController implements ResourceLoaderAware {
 
     @RequestMapping("/loadFile")
     public String loadFile(Map<String, Object> model) throws Exception {
+
+        WordpressClient c = new WordpressClient();
+        c.xx();
+
         writeFile(getRunners());
         model.put("menu",Page.values());
         logger.info("loadFile");

@@ -22,7 +22,14 @@
         JSTL URL: ${url}
         <br>
 
+        <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+
     </div>
+
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
+
     </div>
     <%--<img src="<c:url value="/images/bhaa-logo.jpg" />" />--%>
 
