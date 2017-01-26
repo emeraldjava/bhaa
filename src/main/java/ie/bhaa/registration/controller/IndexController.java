@@ -7,12 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
-import javax.annotation.PostConstruct;
-import java.util.*;
+import java.util.Date;
+import java.util.Map;
 
 /**
  * Created by pauloconnell on 26/06/15.
@@ -33,7 +30,7 @@ public class IndexController {
         model.put("time", new Date());
         model.put("message", this.message);
         model.put("menu",Page.values());
-        return "login";
+        return "index";
     }
 
     @RequestMapping("/member")
@@ -73,23 +70,5 @@ public class IndexController {
     public String admin(Map<String, Object> model) {
         model.put("menu",Page.values());
         return "admin";
-    }
-
-    //Spring Security see this :
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public ModelAndView login(
-            @RequestParam(value = "error", required = false) String error,
-            @RequestParam(value = "logout", required = false) String logout) {
-
-        ModelAndView model = new ModelAndView();
-        if (error != null) {
-            model.addObject("error", "Invalid username and password!");
-        }
-
-        if (logout != null) {
-            model.addObject("msg", "You've been logged out successfully.");
-        }
-        model.setViewName("login");
-        return model;
     }
 }

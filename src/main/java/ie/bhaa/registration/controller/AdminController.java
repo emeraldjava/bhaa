@@ -3,7 +3,6 @@ package ie.bhaa.registration.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import ie.bhaa.registration.domain.Runner;
 import ie.bhaa.registration.enumeration.Page;
-import ie.bhaa.registration.rest.WordpressClient;
 import org.apache.log4j.Logger;
 import org.springframework.context.ResourceLoaderAware;
 import org.springframework.core.io.ResourceLoader;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.annotation.PostConstruct;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,10 +39,6 @@ public class AdminController implements ResourceLoaderAware {
 
     @RequestMapping("/loadFile")
     public String loadFile(Map<String, Object> model) throws Exception {
-
-        WordpressClient c = new WordpressClient();
-        c.xx();
-
         writeFile(getRunners());
         model.put("menu",Page.values());
         logger.info("loadFile");

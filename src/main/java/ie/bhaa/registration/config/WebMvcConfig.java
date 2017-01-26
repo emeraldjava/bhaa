@@ -1,10 +1,6 @@
 package ie.bhaa.registration.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -13,7 +9,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  * Created by pauloconnell on 14/12/16.
  */
 @Configuration
-@EnableWebSecurity
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
     /**
@@ -31,9 +26,9 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/home").setViewName("home");
-        registry.addViewController("/").setViewName("home");
-        registry.addViewController("/index").setViewName("index");
+        registry.addViewController("/member").setViewName("members");
+        registry.addViewController("/").setViewName("member");
         registry.addViewController("/login").setViewName("login");
+        registry.addViewController("/list").setViewName("list");
     }
 }
