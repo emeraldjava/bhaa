@@ -3,27 +3,27 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html lang="en">
-    <head>
-        <title>BHAA Registration List</title>
-        <jsp:include page="/WEB-INF/jsp/header.jsp" />
-    </head>
+<jsp:include page="/WEB-INF/jsp/header.jsp"/>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <jsp:include page="/WEB-INF/jsp/menu.jsp" />
+            <div class="jumbotron">
+                <h2>List Page</h2>
 
-    <body>
-
-    <div class="container">
-    <jsp:include page="/WEB-INF/jsp/menu.jsp" />
-    <h2>List Page</h2>
-
-    <ul>
-        <c:forEach items="${runners}" var="runner">
-            <li>
-                <c:out value="${runner.getId()}"/> <c:out value="${runner.getFirstName()}"/> <c:out value="${runner.getLastName()}"/>
-            </li>
-        </c:forEach>
-    </ul>
+                <ul>
+                    <c:forEach items="${runners}" var="runner">
+                        <li>
+                            <c:out value="${runner.getId()}"/> <c:out value="${runner.getFirstName()}"/> <c:out value="${runner.getLastName()}"/>
+                        </li>
+                    </c:forEach>
+                </ul>
+            </div>
+        </div>
     </div>
-
-    <script src="/webjars/jquery/2.2.4/jquery.min.js"></script>
-    <script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    </body>
+</div>
+</div>
+<jsp:include page="/WEB-INF/jsp/footer.jsp"/>
+</body>
 </html>

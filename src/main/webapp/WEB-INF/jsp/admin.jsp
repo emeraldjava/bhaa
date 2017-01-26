@@ -2,14 +2,13 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html lang="en">
-    <head>
-        <jsp:include page="/WEB-INF/jsp/header.jsp" />
-    </head>
-
-    <body>
-
-    <div class="container">
-        <jsp:include page="/WEB-INF/jsp/menu.jsp" />
+<jsp:include page="/WEB-INF/jsp/header.jsp"/>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <jsp:include page="/WEB-INF/jsp/menu.jsp" />
+            <div class="jumbotron">
         <h2>Admin Page</h2>
         <div>File ${file}</div>
         <div><a href="${pageContext.request.contextPath}/admin/loadFile">Load File</a></div>
@@ -37,12 +36,10 @@
             </h2>
         </c:if>
 
-        <form th:action="@{/logout}" method="post">
-            <input type="submit" value="Sign Out"/>
-        </form>
-
+            </div>
+        </div>
     </div>
-    <script src="/webjars/jquery/2.2.4/jquery.min.js"></script>
-    <script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    </body>
+</div>
+<jsp:include page="/WEB-INF/jsp/footer.jsp"/>
+</body>
 </html>
