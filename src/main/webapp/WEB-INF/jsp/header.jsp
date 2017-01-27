@@ -11,4 +11,4 @@
     <link href="/webjars/bootstrap/3.3.7/css/bootstrap-theme.min-jsf.css" rel="stylesheet" />
     <link href="/webjars/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet">
-<head>
+</head>
