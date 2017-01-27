@@ -32,17 +32,15 @@ public class MembershipFileServiceBean implements MembershipFileService, Resourc
     private String url;
 
     private String FILE_DYNAMIC = "file:dynamic";
-    private String MEMBERS_JSON = "members-list.json";
-
     private ResourceLoader resourceLoader;
     private File folder;
+    private String memberFileName;
 
     @PostConstruct
     public void loadFolder() {
         try {
-            logger.info("MembershipFileServiceBean - init");
             this.folder = this.resourceLoader.getResource(FILE_DYNAMIC).getFile();
-            logger.info(folder.getAbsolutePath());
+            logger.info("MembershipFileServiceBean - init " + folder.getAbsolutePath());
         }catch(Exception e){
             logger.error(e);
         }
@@ -58,18 +56,13 @@ public class MembershipFileServiceBean implements MembershipFileService, Resourc
 
     @Override
     public String getMembershipFile() {
-        logger.info(getUrl());
-        return getUrl();
+        return "dynamic/members-list-2017-01-27.json";// "dynamic/"+this.memberFileName;
     }
 
     @Override
     public void reloadMembershipFile() {
         RestTemplate restTemplate = new RestTemplate();
         MembershipData membershipData = restTemplate.getForObject(getUrl(), MembershipData.class);
-        //System.out.print(quote);
-        //loadFolder();
-        logger.info(membershipData.getCount());
-        logger.info(membershipData.getRunners().size());
         try {
             writeFile(membershipData.getRunners(),membershipData.getDate());
         } catch(Exception e){
@@ -81,10 +74,8 @@ public class MembershipFileServiceBean implements MembershipFileService, Resourc
     @Override
     public void clearMembershipFile() {
         try {
-            //loadFolder();
             Files.walk(Paths.get(folder.toURI()))
                     .filter(Files::isRegularFile)
-                    //.filter(Path::toString().endswith(".json"))
                     .map(Path::toFile)
                     .forEach(File::delete);
         } catch(IOException ioe) {
@@ -93,12 +84,12 @@ public class MembershipFileServiceBean implements MembershipFileService, Resourc
         }
     }
 
-    private String writeFile(List<Runner> list,String date) throws Exception {
+    private void writeFile(List<Runner> list,String date) throws Exception {
         ObjectMapper mapper = new ObjectMapper();
-        File file = new File(this.folder,"members-list-"+date+".json");
+        this.memberFileName = "members-list-"+date+".json";
+        File file = new File(this.folder,this.memberFileName);
         mapper.writeValue(file,list);
         logger.info(file.getAbsolutePath());
-        return MEMBERS_JSON;
     }
 
     public ResourceLoader getResourceLoader() {
