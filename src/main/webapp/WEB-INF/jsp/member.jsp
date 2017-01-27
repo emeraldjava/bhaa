@@ -20,7 +20,7 @@
                 </div>
 
                 <div class="row">
-                    <form action="/enterMember" method="post">
+                    <form action="/raceEntry" method="post">
                         <fieldset name="race" class="col-md-4" type="fieldset" >
                             <legend>Event Details</legend>
                             <div class="form-group">

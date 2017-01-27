@@ -11,14 +11,15 @@
             <jsp:include page="/WEB-INF/jsp/menu.jsp" />
             <div class="jumbotron">
                 <h2>List Page</h2>
-
-                <ul>
-                    <c:forEach items="${runners}" var="runner">
-                        <li>
-                            <c:out value="${runner.getId()}"/> <c:out value="${runner.getFirstName()}"/> <c:out value="${runner.getLastName()}"/>
-                        </li>
-                    </c:forEach>
-                </ul>
+                <div>
+                    <ul>
+                        <c:forEach items="${registeredRunners}" var="runner">
+                            <li>
+                                <c:out value="${runner.getId()}"/> <c:out value="${runner.getRacenumber()}"/> <c:out value="${runner.getLastname()}"/>
+                            </li>
+                        </c:forEach>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

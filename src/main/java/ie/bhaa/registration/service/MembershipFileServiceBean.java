@@ -54,6 +54,10 @@ public class MembershipFileServiceBean implements MembershipFileService, Resourc
         this.url = url;
     }
 
+    /**
+     * Read the last file if present.
+     * @return
+     */
     @Override
     public String getMembershipFile() {
         return "dynamic/members-list-2017-01-27.json";// "dynamic/"+this.memberFileName;

@@ -1,6 +1,6 @@
 package ie.bhaa.registration.service;
 
-import ie.bhaa.registration.domain.Runner;
+import ie.bhaa.registration.form.RaceEntry;
 
 import java.util.List;
 
@@ -9,10 +9,8 @@ import java.util.List;
  */
 public interface RegistrationService {
 
-    Runner saveRunner(Runner runner);
+    void registerRaceEntry(RaceEntry raceEntry);
 
-    List<Runner> getRegisteredRunners();
-
-    List<Runner> getAllRunners();
+    List<RaceEntry> getRegisteredRunners();
 
 }
