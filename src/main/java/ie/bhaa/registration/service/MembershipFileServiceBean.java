@@ -1,8 +1,10 @@
 package ie.bhaa.registration.service;
 
+import ie.bhaa.registration.dto.MembershipData;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.web.client.RestTemplate;
 
 /**
  * Created by pauloconnell on 27/01/17.
@@ -37,6 +39,11 @@ public class MembershipFileServiceBean implements MembershipFileService {
 
     @Override
     public void reloadMembershipFile() {
+        RestTemplate restTemplate = new RestTemplate();
+        MembershipData membershipData = restTemplate.getForObject(getUrl(), MembershipData.class);
+        //System.out.print(quote);
+        logger.info(membershipData.getCount());
+        logger.info(membershipData.getRunners().size());
 
     }
 
