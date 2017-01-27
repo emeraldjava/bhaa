@@ -5,7 +5,7 @@ import ie.bhaa.registration.dto.Runner;
 /**
  * Created by pauloconnell on 27/01/17.
  */
-public class RunnerForm extends Runner {
+public class RaceEntry extends Runner {
 
     private String racenumber;
     private String money;

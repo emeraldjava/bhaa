@@ -1,7 +1,7 @@
 package ie.bhaa.registration.controller;
 
 import ie.bhaa.registration.enumeration.Page;
-import ie.bhaa.registration.form.RunnerForm;
+import ie.bhaa.registration.form.RaceEntry;
 import ie.bhaa.registration.service.MembershipFileServiceBean;
 import ie.bhaa.registration.service.RegistrationService;
 import org.apache.log4j.Logger;
@@ -42,26 +42,22 @@ public class IndexController {
     }
 
     @GetMapping("/member")
-    public String member(Model model){//Map<String, Object> model) {
+    public String member(Model model) {
         model.addAttribute("registeredRunners", registrationService.getRegisteredRunners());
         model.addAttribute("memberFileName", membershipFileService.getMembershipFile());
         logger.info("memberFileName -> "+membershipFileService.getMembershipFile());
-        model.addAttribute("runnerForm", new RunnerForm());
+        model.addAttribute("runnerForm", new RaceEntry());
         model.addAttribute("menu", Page.values());
         return "member";
     }
 
     /**
-     *
-     * http://stackoverflow.com/questions/11651769/spring-3-mvc-is-it-possible-to-have-a-spring-form-without-commandname-binding
-     * @param greeting
-     * @return
+     * Enter a member, add to list
      */
     @PostMapping("/enterMember")
-    public String greetingSubmit(@ModelAttribute RunnerForm runnerForm) {
-        // this way you get value of the input you want
-        //String pathValue1 = runnerForm.getParameter("bhaa_runner");
-        logger.info("enter BHAA ID "+runnerForm.getId()+" "+runnerForm.toString());
+    public String enterAthlete(@ModelAttribute RaceEntry raceEntry) {
+        logger.info("enter BHAA ID "+ raceEntry.getId()+" "+ raceEntry.getRacenumber()+" "+ raceEntry.getMoney());
+
         return "redirect:/list";
     }
 

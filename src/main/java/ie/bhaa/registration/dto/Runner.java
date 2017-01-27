@@ -17,6 +17,7 @@ public class Runner implements Serializable {
     private String company;
     private String companyname;
     private String standard;
+    private String dob;
 
     public String getId() {
         return id;
@@ -96,5 +97,13 @@ public class Runner implements Serializable {
 
     public void setStandard(String standard) {
         this.standard = standard;
+    }
+
+    public String getDob() {
+        return dob;
+    }
+
+    public void setDob(String dob) {
+        this.dob = dob;
     }
 }

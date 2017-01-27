@@ -20,23 +20,23 @@
                 </div>
 
                 <div class="row">
-                    <form>
+                    <form action="/enterMember" method="post">
                         <fieldset name="race" class="col-md-4" type="fieldset" >
                             <legend>Event Details</legend>
                             <div class="form-group">
                                 <label for="bhaa_racenumber" class="form-label">Race Number</label>
-                                <input id="bhaa_racenumber" type="text" class="form-control" name="bhaa_racenumber" value="">
+                                <input id="bhaa_racenumber" type="text" class="form-control" name="racenumber" value="">
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Money</label>
                                 <div>
-                                    <label class="form-label" for="bhaa_money-10"><input id="bhaa_money-10" name="bhaa_money" type="radio" class="radio-inline" value="10"/>10e Member</label>
+                                    <label class="form-label" for="bhaa_money-10"><input id="bhaa_money-10" name="money" type="radio" class="radio-inline" value="10"/>10e Member</label>
                                 </div>
                                 <div>
-                                    <label class="form-label" for="bhaa_money-25"><input id="bhaa_money-25" name="bhaa_money" type="radio" class="radio-inline" value="25"/>25e Renew</label>
+                                    <label class="form-label" for="bhaa_money-25"><input id="bhaa_money-25" name="money" type="radio" class="radio-inline" value="25"/>25e Renew</label>
                                 </div>
                                 <div>
-                                    <label class="form-label" for="bhaa_money-20"><input id="bhaa_money-20" name="bhaa_money" type="radio" class="radio-inline" value="20"/>20e Day</label>
+                                    <label class="form-label" for="bhaa_money-20"><input id="bhaa_money-20" name="money" type="radio" class="radio-inline" value="20"/>20e Day</label>
                                 </div>
                             </div>
                             <div>
@@ -72,7 +72,7 @@
                             <legend>BHAA Details</legend>
                             <div class="form-group">
                                 <label for="bhaa_runner" class="form-label">BHAA ID</label>
-                                <input id="bhaa_runner" type="text" class="form-control" value="">
+                                <input id="bhaa_runner" type="text" class="form-control" name="id" value="">
                             </div>
                             <div class="form-group">
                                 <label for="bhaa_company" class="form-label">Company</label>
@@ -86,20 +86,13 @@
                     </form>
                 </div>
             </div>
-
-<%--<script src="/webjars/jquery/2.2.4/jquery.min.js"></script>--%>
-<%--<script src="/webjars/jquery-ui/1.12.1/jquery-ui.min.js"></script>--%>
-<%--<script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>--%>
-<%--</body>--%>
-<%--</html>--%>
-
-</div>
-</div>
+        </div>
+    </div>
 </div>
 <jsp:include page="/WEB-INF/jsp/footer.jsp"/>
 <script type="text/javascript">
     //<![CDATA[
-    var members = <c:import url="${pageContext.request.contextPath}/dynamic/members-list-2017-01-27.json"/>
+    var members = <c:import url="${pageContext.request.contextPath}/${memberFileName}"/>
     //]]>
 </script>
 <script src="${pageContext.request.contextPath}/js/autocomplete.js"></script>

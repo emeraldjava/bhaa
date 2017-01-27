@@ -16,7 +16,7 @@ jQuery(document).ready( function() {
 			jQuery("#bhaa_runner").val( ui.item.id );
 			jQuery("#bhaa_firstname").val( ui.item.firstname );
 			jQuery("#bhaa_lastname").val( ui.item.lastname );
-			//jQuery("#bhaa_dateofbirth").val( ui.item.dob );
+			jQuery("#bhaa_dateofbirth").val( ui.item.dob );
 			jQuery("#bhaa_company").val( ui.item.companyname );
 			jQuery("#bhaa_standard").val( ui.item.standard );
 			if(ui.item.gender=="M") {
