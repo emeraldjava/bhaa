@@ -1,7 +1,6 @@
 package ie.bhaa.registration.service;
 
 import ie.bhaa.registration.domain.Runner;
-import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
@@ -11,7 +10,7 @@ import java.util.List;
 /**
  * Created by pauloconnell on 14/12/2016.
  */
-@Component
+//@Component
 public class RegistrationServiceBean implements RegistrationService {
 
     private List<Runner> runners;

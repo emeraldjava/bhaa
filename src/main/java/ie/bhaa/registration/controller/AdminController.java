@@ -9,10 +9,10 @@ import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -33,13 +33,22 @@ public class AdminController implements ResourceLoaderAware {
     @RequestMapping("/")
     public String index(Map<String, Object> model) {
         model.put("file", "Filename.json");
+
+
+
         model.put("menu",Page.values());
         return "member";
     }
 
     @RequestMapping("/loadFile")
     public String loadFile(Map<String, Object> model) throws Exception {
-        writeFile(getRunners());
+        logger.info("loadFile");
+        RestTemplate restTemplate = new RestTemplate();
+        String quote = restTemplate.getForObject("http://bhaaie/bhaawp?bhaa-registration=xx&bhaa-registration-token=bhaa&limit=20&status=M", String.class);
+        System.out.print(quote);
+        logger.info(quote);
+
+        //writeFile(getRunners());
         model.put("menu",Page.values());
         logger.info("loadFile");
         return "/admin";
@@ -60,18 +69,18 @@ public class AdminController implements ResourceLoaderAware {
         return MEMBERS_JSON;
     }
 
-    private List<Runner> getRunners() {
-        List<Runner> list = new ArrayList<Runner>();
-        list.add(new Runner(1000l,"Paul","B1"));
-        list.add(new Runner(2000l,"Pat","B2"));
-        list.add(new Runner(3000l,"Paaut","B3"));
-        list.add(new Runner(4000l,"Jacobe","B4"));
-        list.add(new Runner(1100l,"xPaul","B1"));
-        list.add(new Runner(2100l,"xPat","B2"));
-        list.add(new Runner(3100l,"xPaaut","B3"));
-        list.add(new Runner(4100l,"xJacobe","B4"));
-        return list;
-    }
+//    private List<Runner> getRunners() {
+//        List<Runner> list = new ArrayList<Runner>();
+//        list.add(new Runner(1000l,"Paul","B1"));
+//        list.add(new Runner(2000l,"Pat","B2"));
+//        list.add(new Runner(3000l,"Paaut","B3"));
+//        list.add(new Runner(4000l,"Jacobe","B4"));
+//        list.add(new Runner(1100l,"xPaul","B1"));
+//        list.add(new Runner(2100l,"xPat","B2"));
+//        list.add(new Runner(3100l,"xPaaut","B3"));
+//        list.add(new Runner(4100l,"xJacobe","B4"));
+//        return list;
+//    }
 
     @ExceptionHandler(Exception.class)
     public ModelAndView handleAllException(Exception ex) {
