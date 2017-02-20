@@ -20,12 +20,23 @@
 		<main.basedir>${basedir}/../..</main.basedir>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
+		<jackson.version>2.7.3</jackson.version>
+		<jquery.version>2.2.4</jquery.version>
+		<jquery-ui.version>1.12.1</jquery-ui.version>
+		<junit.version>4.12</junit.version>
+		<!--<patternfly.version>3.19.0</patternfly.version>-->
+		<x-editable.version>1.5.1</x-editable.version>
+		<bootstrap.version>3.3.7</bootstrap.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -57,8 +68,18 @@
 		<!-- JSON dependencies -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
-			<version>2.8.4</version>
+			<version>${jackson.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
@@ -71,26 +92,121 @@
 			<version>1.9</version>
 		</dependency>
 
+		<!--<dependency>-->
+			<!--<groupId>org.webjars.npm</groupId>-->
+			<!--<artifactId>patternfly</artifactId>-->
+			<!--<version>${patternfly.version}</version>-->
+			<!--<exclusions>-->
+				<!--<exclusion>-->
+					<!--<groupId>org.webjars.npm</groupId>-->
+					<!--<artifactId>google-code-prettify</artifactId>-->
+				<!--</exclusion>-->
+				<!--<exclusion>-->
+					<!--<groupId>org.webjars.npm</groupId>-->
+					<!--<artifactId>datatables.net-colreorder-bs</artifactId>-->
+				<!--</exclusion>-->
+				<!--<exclusion>-->
+					<!--<groupId>org.webjars.npm</groupId>-->
+					<!--<artifactId>drmonty-datatables-colvis</artifactId>-->
+				<!--</exclusion>-->
+				<!--<exclusion>-->
+					<!--<groupId>org.webjars.npm</groupId>-->
+					<!--<artifactId>bootstrap-switch</artifactId>-->
+				<!--</exclusion>-->
+				<!--<exclusion>-->
+					<!--<groupId>org.webjars.npm</groupId>-->
+					<!--<artifactId>moment</artifactId>-->
+				<!--</exclusion>-->
+			<!--</exclusions>-->
+		<!--</dependency>-->
+
+		<!--<dependency>-->
+			<!--<groupId>org.webjars.bower</groupId>-->
+			<!--<artifactId>patternfly</artifactId>-->
+			<!--<version>${patternfly.version}</version>-->
+			<!--<exclusions>-->
+				<!--<exclusion>-->
+					<!--<groupId>org.webjars.bower</groupId>-->
+					<!--<artifactId>google-code-prettify</artifactId>-->
+				<!--</exclusion>-->
+				<!--<exclusion>-->
+					<!--<groupId>org.webjars.bower</groupId>-->
+					<!--<artifactId>patternfly-bootstrap-combobox</artifactId>-->
+				<!--</exclusion>-->
+				<!--<exclusion>-->
+					<!--<groupId>org.webjars.bower</groupId>-->
+					<!--<artifactId>datatables-colvis</artifactId>-->
+				<!--</exclusion>-->
+			<!--</exclusions>-->
+		<!--</dependency>-->
+		<!--<dependency>-->
+			<!--<groupId>org.webjars.npm</groupId>-->
+			<!--<artifactId>github-com-emeraldjava-google-code-prettify</artifactId>-->
+			<!--<version>1.0.5</version>-->
+		<!--</dependency>-->
+		<!--<dependency>-->
+			<!--<groupId>org.webjars.npm</groupId>-->
+			<!--<artifactId>x-editable</artifactId>-->
+			<!--<version>${x-editable.version}</version>-->
+		<!--</dependency>-->
+		<!--<dependency>-->
+			<!--<groupId>org.webjars.bower</groupId>-->
+			<!--<artifactId>jquery</artifactId>-->
+			<!--<version>${jquery.version}</version>-->
+		<!--</dependency>-->
+		<!--<dependency>-->
+			<!--<groupId>org.webjars.bower</groupId>-->
+			<!--<artifactId>jquery-ui</artifactId>-->
+			<!--<version>${jquery-ui.version}</version>-->
+		<!--</dependency>-->
+
+		<!--<dependency>-->
+			<!--<groupId>org.webjars.npm</groupId>-->
+			<!--<artifactId>jquery-ui</artifactId>-->
+			<!--<version>${jquery-ui.version}</version>-->
+		<!--</dependency>-->
 		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>jquery</artifactId>
-			<version>2.2.4</version>
+			<version>${jquery.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>jquery-ui</artifactId>
-			<version>1.12.1</version>
+			<version>${jquery-ui.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>bootstrap</artifactId>
-			<version>3.3.7</version>
+			<version>${bootstrap.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>Bootstrap-3-Typeahead</artifactId>
+			<version>3.1.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>font-awesome</artifactId>
 			<version>4.7.0</version>
 		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>startbootstrap-grayscale</artifactId>
+			<version>1.0.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>x-editable-bootstrap</artifactId>
+			<version>1.5.1-1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>datatables</artifactId>
+			<version>1.10.13</version>
+		</dependency>
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
