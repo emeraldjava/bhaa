@@ -21,6 +21,10 @@ Uses EhCache to maintain the list of currently entered users (no DB).
 https://dashboard.heroku.com/apps/bhaa
 https://bhaa.herokuapp.com/
 
+https://lima.codeclimate.com/github/emeraldjava/bhaa
+
+https://github.com/webjars/bootstrap-3-typeahead
+https://github.com/BlackrockDigital/startbootstrap-grayscale
 
 
 Autocomplete

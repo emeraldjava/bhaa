@@ -23,7 +23,7 @@ public class AdminController {
     @Autowired
     private MembershipFileServiceBean membershipFileService;
 
-    @RequestMapping("/")
+    @RequestMapping("/a")
     public String index(Map<String, Object> model) {
         model.put("file", "Filename.json");
         model.put("menu", Page.values());
